@@ -1,0 +1,19 @@
+# Node
+node_modules/
+.env
+npm-debug.log
+
+# Flutter
+.dart_tool/
+build/
+.flutter-plugins
+.flutter-plugins-deps
+.packages
+.pub-cache/
+.pub/
+.idea/
+*.iml
+.vscode/
+
+# Misc
+.DS_Store
