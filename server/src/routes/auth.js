@@ -19,7 +19,7 @@ router.post('/register', async (req, res, next) => {
     const hashed = await bcrypt.hash(password, 10);
 
     pool.run(
-      'INSERT INTO users (email, password_hash, name, role) VALUES (?, ?, ?, ?)',
+      'INSERT INTO users (email, password_hash, name, role) VALUES (?, ?, ?, ?) RETURNING id',
       [email, hashed, name, role || 'customer'],
       function(err) {
         if (err) {
