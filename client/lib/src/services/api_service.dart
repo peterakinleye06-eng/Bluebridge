@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
@@ -12,16 +11,8 @@ class ApiService {
   // ────────────────────────────────────────────────────────────────────────────
 
   static String get baseUrl {
-    if (kIsWeb) {
-      return 'http://localhost:4000/api';
-    }
-    // Android emulator uses 10.0.2.2 to reach host machine's localhost
-    // Real device uses the actual PC IP on the same WiFi network
-    const bool isEmulator = bool.fromEnvironment('IS_EMULATOR', defaultValue: false);
-    if (isEmulator) {
-      return 'http://10.0.2.2:4000/api';
-    }
-    return 'http://$_androidDeviceIp:4000/api';
+    // Production server on Render
+    return 'https://bridgelink-server.onrender.com/api';
   }
 
   Future<Map<String, dynamic>> login(String email, String password) async {
